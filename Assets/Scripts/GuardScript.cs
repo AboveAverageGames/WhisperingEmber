@@ -104,6 +104,11 @@ public class GuardScript : MonoBehaviour
 
         while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
         {
+            //Makes Guard stop if they can see the player before resuming their "Patrol"
+            while (CanSeePlayer())
+            {
+                yield return new WaitForSeconds(timeToSpotPlayer);
+            }
             float angle = Mathf.MoveTowardsAngle (transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
             transform.eulerAngles = Vector3.up * angle;
             yield return null;
