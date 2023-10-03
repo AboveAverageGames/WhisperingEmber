@@ -4060,7 +4060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770538861}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21435712, y: -0.000000016806425, z: -0.0000000036883099, w: 0.9767554}
+  m_LocalRotation: {x: -0.21435712, y: 0.000000016806428, z: 0.0000000036883108, w: 0.9767554}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5196,7 +5196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -540.83, y: -253.28}
+  m_AnchoredPosition: {x: -541.2041, y: -253.28}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &923702529
@@ -5221,8 +5221,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Avoid the gaurd ahead..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 982584002741886439a8fb2285a0ac39, type: 2}
-  m_sharedMaterial: {fileID: -4336295633321775788, guid: 982584002741886439a8fb2285a0ac39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15cfbec466617ad4f86b413e63113112, type: 2}
+  m_sharedMaterial: {fileID: 2232760724948000059, guid: 15cfbec466617ad4f86b413e63113112, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5763,7 +5763,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21435714, y: -0.000000016806426, z: -0.0000000036883108, w: 0.9767554}
+  m_LocalRotation: {x: -0.21435714, y: 0.00000001680643, z: 0.0000000036883114, w: 0.9767554}
   m_LocalPosition: {x: -1.08, y: 3.6283846, z: -24.119038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6734,8 +6734,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Pick \nup \npots\n for mana"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 982584002741886439a8fb2285a0ac39, type: 2}
-  m_sharedMaterial: {fileID: -4336295633321775788, guid: 982584002741886439a8fb2285a0ac39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15cfbec466617ad4f86b413e63113112, type: 2}
+  m_sharedMaterial: {fileID: 2232760724948000059, guid: 15cfbec466617ad4f86b413e63113112, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7138,8 +7138,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: while you were asleep someone opened your cell... press W,A,S,D for movement
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 982584002741886439a8fb2285a0ac39, type: 2}
-  m_sharedMaterial: {fileID: -4336295633321775788, guid: 982584002741886439a8fb2285a0ac39, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15cfbec466617ad4f86b413e63113112, type: 2}
+  m_sharedMaterial: {fileID: 2232760724948000059, guid: 15cfbec466617ad4f86b413e63113112, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
