@@ -8,13 +8,17 @@ using JetBrains.Annotations;
 using System.Runtime.CompilerServices;
 using System.ComponentModel.Design.Serialization;
 using UnityEditor.Experimental.GraphView;
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
 
     //Mana bar
-    public float maxMana;
+    private bool canCastSpell;
+    private bool usingASpell;
+    public float maxMana = 100;
     public float currentMana;
+    public float manaUseSpeed = 10.0f;
     [SerializeField] AlertBar manabar;
 
     //Script for seeing Guard Through Wall
@@ -87,9 +91,23 @@ public class PlayerController : MonoBehaviour
         else
             rb.drag = 0;
 
+
+        //IF Using a spell reduce the mana
+        if (usingASpell)
+        {
+                currentMana -= Time.deltaTime * manaUseSpeed;
+            currentMana = Mathf.Clamp(currentMana,0,maxMana);
+            }
+        // Checks if you can cast a spell
+        if (currentMana > 0)
+        {
+            canCastSpell = true;
+        }
+
+
         MyInput();
         SpeedControl();
-        
+
         //Static Event Checking for crystals collection
         if (crystalsCollected >= crystalsTotal)
         {
@@ -127,24 +145,40 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        //Change Guard Layers to visible / INVISIBLE THROUGH WALLS
-        if (Input.GetKeyDown(KeyCode.Q))
+       
+        //Checking If can cast
+        if (currentMana == 0)
+            {
+            canCastSpell = false;
+        }
+        else if (currentMana > 0)
+        {
+            canCastSpell = true;
+        }
+        //Change Guard Layers to visible / INVISIBLE THROUGH WALLS.. Can cast spell is to stop player holding Q forever
+        
+        if (Input.GetKeyDown(KeyCode.Q) && (currentMana > 0) && (canCastSpell))
         {
             var children = guardGameObject.GetComponentsInChildren<Transform>(includeInactive: true);
             foreach (var child in children)
             {
                 child.gameObject.layer = LayerMask.NameToLayer("Guard");
             }
+            usingASpell = true;
+            if (currentMana == 0)
+            {
+                canCastSpell = false;
+            }
         }
-        else if (Input.GetKeyUp(KeyCode.Q))
+        else if (Input.GetKeyUp(KeyCode.Q) || !canCastSpell)
         {
             var children = guardGameObject.GetComponentsInChildren<Transform>(includeInactive: true);
             foreach (var child in children)
             {
                 child.gameObject.layer = LayerMask.NameToLayer("GuardNotSeeThrough");
             }
+            usingASpell = false;
         }
-      
 
         //Jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
