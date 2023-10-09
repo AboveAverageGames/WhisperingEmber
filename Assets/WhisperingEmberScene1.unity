@@ -1323,7 +1323,7 @@ MonoBehaviour:
   viewDistance: 10
   viewMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 2176
   timeToSpotPlayer: 1
   alertbar: {fileID: 1330717925}
 --- !u!4 &322060277
@@ -3893,7 +3893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770538861}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21435712, y: 0.000000016806428, z: 0.0000000036883108, w: 0.9767554}
+  m_LocalRotation: {x: -0.21435712, y: -0.000000016806425, z: -0.0000000036883099, w: 0.9767554}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5475,7 +5475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.21435714, y: 0.00000001680643, z: 0.0000000036883114, w: 0.9767554}
+  m_LocalRotation: {x: -0.21435714, y: -0.000000016806426, z: -0.0000000036883108, w: 0.9767554}
   m_LocalPosition: {x: -1.08, y: 3.6283846, z: -24.119038}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10098,7 +10098,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687304095}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.041315246, y: -0.000000017191692, z: -7.10886e-10, w: 0.99914616}
+  m_LocalRotation: {x: -0.041315246, y: 0.000000017191688, z: 7.1088585e-10, w: 0.99914616}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

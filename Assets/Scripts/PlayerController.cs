@@ -140,24 +140,51 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     private void MyInput()
     {
-        
+
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-       
+
         //Checking If can cast
         if (currentMana == 0)
-            {
+        {
             canCastSpell = false;
         }
         else if (currentMana > 0)
         {
             canCastSpell = true;
         }
-        //Change Guard Layers to visible / INVISIBLE THROUGH WALLS.. Can cast spell is to stop player holding Q forever
-        
-        if (Input.GetKeyDown(KeyCode.Q) && (currentMana > 0) && (canCastSpell))
+
+        //Change Player Layer and children to INVISIBLE
+        if (Input.GetKeyDown(KeyCode.LeftControl) && (currentMana > 0) && (canCastSpell))
+        {
+            var children = GetComponentsInChildren<Transform>(includeInactive: true);
+            foreach (var child in children)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("InvisiblePlayer");
+            }
+            usingASpell = true;
+            if (currentMana == 0)
+            {
+                canCastSpell = false;
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl) || !canCastSpell)
+        {
+            var children = GetComponentsInChildren<Transform>(includeInactive: true);
+            foreach (var child in children)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("Player");
+            }
+            usingASpell = false;
+        }
+
+
+
+
+            //Change Guard Layers to visible / INVISIBLE THROUGH WALLS.. Can cast spell is to stop player holding Q forever
+            if (Input.GetKeyDown(KeyCode.Q) && (currentMana > 0) && (canCastSpell))
         {
             var children = guardGameObject.GetComponentsInChildren<Transform>(includeInactive: true);
             foreach (var child in children)
