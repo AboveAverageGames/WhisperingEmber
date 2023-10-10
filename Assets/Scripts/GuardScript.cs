@@ -14,7 +14,8 @@ public class GuardScript : MonoBehaviour
     public float turnSpeed;
 
 
-
+    GameObject guardGameObject;
+    public PlayerController PlayerController;
 
     //Pathing system
     public Transform pathHolder;
@@ -40,6 +41,9 @@ public class GuardScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        guardGameObject = gameObject;
+
         originalColor = spotlight.color;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         viewAngle = spotlight.spotAngle;
@@ -76,6 +80,8 @@ public class GuardScript : MonoBehaviour
     void Update()
     {
 
+
+
         //Detecting player
         if (CanSeePlayer()) {
             playerVisibleTimer += Time.deltaTime;
@@ -95,6 +101,35 @@ public class GuardScript : MonoBehaviour
             {  OnGuardHasSpottedPlayer();
            }
         }
+
+
+
+
+        //CHANGES LAYER TO VISIBLE THROUGH WALLS IF PLAYE PRESSES Q
+        if (Input.GetKeyDown(KeyCode.Q) && (PlayerController.currentMana > 0) && (PlayerController.canCastSpell))
+        {
+            var children = guardGameObject.GetComponentsInChildren<Transform>(includeInactive: true);
+            foreach (var child in children)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("Guard");
+            }
+            PlayerController.usingASpell = true;
+            if (PlayerController.currentMana == 0)
+            {
+                PlayerController.canCastSpell = false;
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.Q))
+        {
+            var children = guardGameObject.GetComponentsInChildren<Transform>(includeInactive: true);
+            foreach (var child in children)
+            {
+                child.gameObject.layer = LayerMask.NameToLayer("GuardNotSeeThrough");
+            }
+            PlayerController.usingASpell = false;
+        }
+
+
     }
 
     IEnumerator TurnToFace(Vector3 lookTarget)

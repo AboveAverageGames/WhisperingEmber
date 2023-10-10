@@ -14,8 +14,8 @@ public class PlayerController : MonoBehaviour
 {
 
     //Mana bar
-    private bool canCastSpell;
-    private bool usingASpell;
+    public bool canCastSpell;
+    public bool usingASpell;
     public float maxMana = 100;
     public float currentMana;
     public float manaUseSpeed = 10.0f;
@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-
+        /*
             //Change Guard Layers to visible / INVISIBLE THROUGH WALLS.. Can cast spell is to stop player holding Q forever
             if (Input.GetKeyDown(KeyCode.Q) && (currentMana > 0) && (canCastSpell))
         {
@@ -206,6 +206,9 @@ public class PlayerController : MonoBehaviour
             }
             usingASpell = false;
         }
+
+        THIS HAS BEEN MOVED TO GUARD SCRIPT SO IT APPLIES TO ALL PREFABS
+        */
 
         //Jump
         if (Input.GetKey(jumpKey) && readyToJump && grounded)
