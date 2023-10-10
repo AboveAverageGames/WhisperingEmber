@@ -13,7 +13,7 @@ public class Crystal : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        crystalsUI.text = ("Crystals Collected: " + PlayerController.crystalsCollected + "/" + PlayerController.crystalsTotal);
+        crystalsUI.text = (PlayerController.crystalsCollected + "/" + PlayerController.crystalsTotal);
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class Crystal : MonoBehaviour
          
 
             PlayerController.crystalsCollected++;
-            crystalsUI.text = ("Crystals Collected: " + PlayerController.crystalsCollected + "/" + PlayerController.crystalsTotal);
+            crystalsUI.text = (PlayerController.crystalsCollected + "/" + PlayerController.crystalsTotal);
             Destroy(gameObject);
 
         }
