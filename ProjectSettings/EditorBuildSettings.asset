@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 96793cb8d49198545b04fb218671b44b
+  - enabled: 1
+    path: Assets/Scenes/WhisperingEmberScene1.unity
+    guid: 3b40d04dfb6b6624e9ed3031b7d67b3b
   m_configObjects: {}
