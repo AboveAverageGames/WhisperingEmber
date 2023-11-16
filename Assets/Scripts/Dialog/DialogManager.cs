@@ -17,6 +17,14 @@ public class DialogManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            HideDialog();
+
+        }
+    }
 
 
     public void ShowDialog(Dialog dialog)
@@ -33,5 +41,10 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / lettersPerSecond);
         }
+    }
+
+    public void HideDialog()
+    {
+        dialogBox.SetActive(false);
     }
 }

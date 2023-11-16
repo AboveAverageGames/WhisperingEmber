@@ -6,13 +6,15 @@ public class DialogTriggers : MonoBehaviour
 {
 
     [SerializeField] Dialog dialog;
+    public bool hasEntered;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !hasEntered)
             {
             DialogManager.Instance.ShowDialog(dialog);
-            Debug.Log("WE HAVE COLLISIONNN BOy");
+            hasEntered = true;
+            Destroy(gameObject);
         }
     }
 }
